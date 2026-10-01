@@ -1,0 +1,302 @@
+[
+  {
+    "id": "what-ai-and-llms-are",
+    "day": 1,
+    "week": 1,
+    "date": "2026-10-01",
+    "title": "What AI and language models are",
+    "outcome": "Explain the difference between AI, machine learning, and a large language model.",
+    "reading": [
+      "Artificial intelligence is a broad label for computer systems that perform tasks associated with perception, language, prediction, planning, or decision support. Machine learning is one way to build those systems: instead of writing every rule by hand, developers train a model on examples.",
+      "A large language model, or LLM, learns statistical patterns in language and generates a response one token at a time. It does not contain a tiny person, a perfect database, or guaranteed truth. Treat its output as a useful prediction that still needs human judgment."
+    ],
+    "exercise": "Ask an AI assistant to explain the same idea to a child, a business owner, and a software developer. Compare what changes.",
+    "discussion": "Which parts of intelligence are being simulated, and which parts still belong to the person using the tool?",
+    "sources": [{"label":"Hugging Face LLM Course","url":"https://huggingface.co/learn/llm-course/chapter1/1"}]
+  },
+  {
+    "id": "tokens-context-prediction",
+    "day": 2,
+    "week": 1,
+    "date": "2026-10-02",
+    "title": "Tokens, context, and prediction",
+    "outcome": "Describe how token prediction and a limited context window shape an answer.",
+    "reading": [
+      "Language models process text as tokens: small chunks that may be a word, part of a word, punctuation, or code. The model repeatedly predicts a likely next token based on the tokens already in its active context.",
+      "The context window is working memory, not permanent memory. Long conversations, large files, and unclear instructions compete for that space. Put the most important facts, constraints, and desired output close to the task."
+    ],
+    "exercise": "Give the same request once without background and once with three concrete facts. Note which answer is more useful.",
+    "discussion": "What information should always be included when asking for help with your work?",
+    "sources": [{"label":"Hugging Face LLM Course","url":"https://huggingface.co/learn/llm-course/chapter1/1"}]
+  },
+  {
+    "id": "models-products-open-models",
+    "day": 3,
+    "week": 1,
+    "date": "2026-10-05",
+    "title": "Models, products, and open models",
+    "outcome": "Separate the underlying model from the application, interface, and surrounding tools.",
+    "reading": [
+      "A model is only one layer of an AI product. A complete product may add search, file handling, memory, safety policies, tools, billing, and a user interface. Two products using similar models can behave very differently because their surrounding systems differ.",
+      "Open models make some combination of weights, code, or documentation available, but licences and freedoms vary. Check exactly what is open, what can be modified, whether commercial use is allowed, and which parts remain hosted or proprietary."
+    ],
+    "exercise": "Choose one AI product and list its visible layers: model, interface, memory, files, tools, and policies.",
+    "discussion": "What would you need to control before calling an AI system truly open?",
+    "sources": [{"label":"Hugging Face Hub","url":"https://huggingface.co/models"}]
+  },
+  {
+    "id": "strengths-limitations-hallucinations",
+    "day": 4,
+    "week": 1,
+    "date": "2026-10-06",
+    "title": "Strengths, limitations, and hallucinations",
+    "outcome": "Match AI tasks to appropriate verification rather than trusting fluency.",
+    "reading": [
+      "Language models are strong at drafting, transforming, classifying, explaining, and exploring possibilities. They can also produce confident statements that are incomplete, outdated, or invented. Fluent language is not evidence of correctness.",
+      "Risk depends on the task. Brainstorming a slogan needs little verification; medical, legal, financial, security, and production decisions need authoritative sources and accountable review. Increase verification as consequences increase."
+    ],
+    "exercise": "Ask for five facts about a topic you know well. Label each as verified, questionable, or false and record how you checked it.",
+    "discussion": "When is an imperfect first draft valuable, and when is it dangerous?",
+    "sources": [{"label":"NIST AI Risk Management Framework","url":"https://www.nist.gov/itl/ai-risk-management-framework"}]
+  },
+  {
+    "id": "first-useful-workflow",
+    "day": 5,
+    "week": 1,
+    "date": "2026-10-07",
+    "title": "Your first useful AI workflow",
+    "outcome": "Turn one repeated task into a small, reviewable AI-assisted workflow.",
+    "reading": [
+      "Start with a task you already understand. Good first workflows are repeated, low-risk, easy to inspect, and annoying enough that improvement matters. Examples include turning notes into action items or converting rough copy into a consistent format.",
+      "Define the input, desired output, constraints, and review step before involving AI. A useful workflow is not just a prompt; it is a repeatable process with a clear owner and a way to catch mistakes."
+    ],
+    "exercise": "Write a four-step workflow for one weekly task: collect, draft, review, publish or store.",
+    "discussion": "Which repeated task costs you attention without requiring your best judgment?",
+    "sources": [{"label":"NIST AI RMF Playbook","url":"https://airc.nist.gov/airmf-resources/playbook/"}]
+  },
+  {
+    "id": "clear-instructions",
+    "day": 6,
+    "week": 2,
+    "date": "2026-10-08",
+    "title": "Giving clear instructions",
+    "outcome": "Write a request with a goal, audience, constraints, and output format.",
+    "reading": [
+      "A useful instruction says what success looks like. Include the goal, intended audience, relevant context, constraints, and desired format. Do not make the model guess whether you want ideas, a decision, a draft, or a finished artifact.",
+      "Clear does not mean long. Begin with the smallest complete request, inspect the result, then add missing constraints. Iteration is often more reliable than trying to invent one enormous perfect prompt."
+    ],
+    "exercise": "Rewrite a vague request using five headings: goal, audience, context, constraints, and format.",
+    "discussion": "Which missing detail most often causes disappointing answers?",
+    "sources": [{"label":"Anthropic prompt engineering overview","url":"https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"}]
+  },
+  {
+    "id": "context-and-examples",
+    "day": 7,
+    "week": 2,
+    "date": "2026-10-09",
+    "title": "Providing context and examples",
+    "outcome": "Use representative examples to communicate quality and boundaries.",
+    "reading": [
+      "Examples show patterns that are difficult to describe abstractly: tone, structure, acceptable detail, and edge cases. One strong example can outperform several paragraphs of adjectives.",
+      "Use examples that represent the work you actually want. Remove private information, explain which qualities should be copied, and include a counterexample when an important boundary could be misunderstood."
+    ],
+    "exercise": "Provide one good example and one bad example for a task, then ask the model to explain the difference before producing new work.",
+    "discussion": "What makes an example representative rather than merely impressive?",
+    "sources": [{"label":"Anthropic multishot prompting","url":"https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting"}]
+  },
+  {
+    "id": "documents-images-voice",
+    "day": 8,
+    "week": 2,
+    "date": "2026-10-12",
+    "title": "Documents, images, and voice",
+    "outcome": "Choose an input format that preserves the information needed for the task.",
+    "reading": [
+      "Modern AI systems may accept documents, images, and audio as well as text. These inputs can reduce manual transcription, but the model can still miss small text, layout relationships, speakers, or details hidden in poor-quality media.",
+      "State what to inspect and request evidence such as page numbers, quoted labels, or timestamps. For consequential work, compare the answer against the original file rather than relying on a summary alone."
+    ],
+    "exercise": "Use a non-sensitive document or image and ask for observations with precise locations. Verify every location yourself.",
+    "discussion": "What information is lost when a document is reduced to plain text?",
+    "sources": [{"label":"NIST Generative AI Profile","url":"https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"}]
+  },
+  {
+    "id": "privacy-security-copyright",
+    "day": 9,
+    "week": 2,
+    "date": "2026-10-13",
+    "title": "Privacy, security, and copyright",
+    "outcome": "Identify information and actions that should not be handed to an AI system casually.",
+    "reading": [
+      "Before sharing data, ask who owns it, who may access it, how long it is retained, and whether the service may use it for training. Avoid entering passwords, private keys, payment data, confidential records, or unnecessary personal information.",
+      "AI-generated material can reproduce errors or protected expression. Keep provenance for important inputs, respect licences, prefer material you have permission to use, and have a person review anything published under your name."
+    ],
+    "exercise": "Create a three-column data list: safe to share, share only in an approved environment, and never share.",
+    "discussion": "What information feels harmless alone but becomes sensitive when combined?",
+    "sources": [{"label":"OWASP Top 10 for LLM and GenAI","url":"https://genai.owasp.org/initiative/owasp-top-10-for-llm-and-genai/"}]
+  },
+  {
+    "id": "evaluate-and-verify",
+    "day": 10,
+    "week": 2,
+    "date": "2026-10-14",
+    "title": "Evaluating and verifying an answer",
+    "outcome": "Create a lightweight test for accuracy, usefulness, and safety.",
+    "reading": [
+      "Evaluation begins with a definition of success. Decide what must be correct, what can vary, what evidence is required, and what failures are unacceptable. A vague feeling that an answer looks good is not a test.",
+      "Use a small set of realistic examples, including difficult or adversarial cases. Check outputs against authoritative evidence, record recurring failures, and rerun the same examples when the prompt, model, or workflow changes."
+    ],
+    "exercise": "Write a five-point checklist for evaluating the workflow you designed on day five.",
+    "discussion": "Which failure would make you stop using a workflow even if it usually saves time?",
+    "sources": [{"label":"NIST AI Resource Center","url":"https://airc.nist.gov/"}]
+  },
+  {
+    "id": "chatbot-to-agent",
+    "day": 11,
+    "week": 3,
+    "date": "2026-10-15",
+    "title": "From chatbot to agent",
+    "outcome": "Explain the difference between a response, a workflow, and an agent.",
+    "reading": [
+      "A chatbot primarily returns a response. A workflow follows predefined steps. An agent has more freedom to choose steps and tools while pursuing a goal. These categories overlap, so focus on actual capabilities rather than marketing labels.",
+      "More autonomy increases both usefulness and uncertainty. Start with the simplest workflow that solves the problem, then add discretion only where it produces measurable value."
+    ],
+    "exercise": "Classify three systems you use as response, workflow, or agent and explain your reasoning.",
+    "discussion": "Where would additional autonomy help, and where would it remove needed control?",
+    "sources": [{"label":"Anthropic: Building effective agents","url":"https://www.anthropic.com/engineering/building-effective-agents"}]
+  },
+  {
+    "id": "tools-apis-permissions",
+    "day": 12,
+    "week": 3,
+    "date": "2026-10-16",
+    "title": "Tools, APIs, and permissions",
+    "outcome": "Describe how an AI system uses tools and why permissions define its real power.",
+    "reading": [
+      "Tools let an AI system search, calculate, read files, call APIs, or change external systems. The model proposes an action, while ordinary software validates and executes it. Tool design determines what the system can actually affect.",
+      "Use least privilege: provide only the narrow access needed for the task. Separate reading from writing, restrict targets, validate inputs, log actions, and require approval before costly or irreversible operations."
+    ],
+    "exercise": "Choose one imagined tool and define its allowed inputs, denied actions, and required approval.",
+    "discussion": "Is a weak model with broad permissions more dangerous than a strong model with narrow permissions?",
+    "sources": [{"label":"OWASP Top 10 for LLM and GenAI","url":"https://genai.owasp.org/initiative/owasp-top-10-for-llm-and-genai/"}]
+  },
+  {
+    "id": "community-lab",
+    "day": 13,
+    "week": 3,
+    "date": "2026-10-17",
+    "title": "Community lab: map a real process",
+    "outcome": "Map a real task before attempting to automate it.",
+    "reading": [
+      "Automation fails when the real process is poorly understood. Map the trigger, inputs, decisions, exceptions, outputs, owner, and evidence that proves completion. Include the informal steps people usually keep in their heads.",
+      "A process map reveals which steps are deterministic, which need judgment, and which should remain manual. It also exposes missing permissions, unreliable data, and unclear accountability before code makes them harder to see."
+    ],
+    "exercise": "Draw your workflow as boxes and arrows. Mark every decision, external system, and irreversible action.",
+    "discussion": "Which hidden exception would break a simplistic automation?",
+    "sources": [{"label":"NIST AI RMF Playbook","url":"https://airc.nist.gov/airmf-resources/playbook/"}]
+  },
+  {
+    "id": "memory-and-retrieval",
+    "day": 14,
+    "week": 3,
+    "date": "2026-10-19",
+    "title": "Memory and retrieval",
+    "outcome": "Distinguish conversation context, stored memory, and retrieval from trusted sources.",
+    "reading": [
+      "AI memory may mean several different things: the current conversation, saved user preferences, a searchable document collection, or records written by an agent. Each has different ownership, freshness, and privacy risks.",
+      "Retrieval brings selected information into the active context when needed. Good retrieval depends on trustworthy sources, useful metadata, access controls, and a way to identify stale or conflicting information."
+    ],
+    "exercise": "List five facts your workflow may need later and identify the authoritative source for each one.",
+    "discussion": "What should a system forget, and who gets to decide?",
+    "sources": [{"label":"Anthropic: Contextual Retrieval","url":"https://www.anthropic.com/engineering/contextual-retrieval"}]
+  },
+  {
+    "id": "approvals-safe-automation",
+    "day": 15,
+    "week": 3,
+    "date": "2026-10-20",
+    "title": "Human approvals and safe automation",
+    "outcome": "Place approval, verification, and rollback gates around consequential actions.",
+    "reading": [
+      "Human oversight works only when it appears at the right point. Approve the exact action and payload before money moves, messages are sent, records are deleted, or public content is published—not after the consequence.",
+      "After execution, read back the real external state. Keep logs and a rollback path, and make failures visible. A tool reporting success is not proof that the intended result exists."
+    ],
+    "exercise": "Add approval and read-back verification steps to the process map from the community lab.",
+    "discussion": "Which actions deserve approval every time, even after the system earns trust?",
+    "sources": [{"label":"NIST Generative AI Profile","url":"https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"}]
+  },
+  {
+    "id": "supervised-agent-workflow",
+    "day": 16,
+    "week": 4,
+    "date": "2026-10-21",
+    "title": "Build a supervised agent workflow",
+    "outcome": "Combine instructions, a tool, an approval step, and verification into one design.",
+    "reading": [
+      "A supervised agent can gather information, prepare a proposed action, and pause for a person to review it. This captures much of the value of automation while keeping accountability with the operator.",
+      "Define stopping conditions. The agent should know when information is missing, when confidence is inadequate, when a tool fails, and when the task exceeds its permission boundary."
+    ],
+    "exercise": "Write a step-by-step specification for an agent that drafts but cannot send a message without approval.",
+    "discussion": "How should the system explain uncertainty to the reviewer?",
+    "sources": [{"label":"Anthropic: Building effective agents","url":"https://www.anthropic.com/engineering/building-effective-agents"}]
+  },
+  {
+    "id": "automate-repeated-task",
+    "day": 17,
+    "week": 4,
+    "date": "2026-10-22",
+    "title": "Automating a repeated task",
+    "outcome": "Choose one bounded automation and define a measurable result.",
+    "reading": [
+      "A good automation target has stable inputs, a clear output, frequent repetition, and a manageable failure mode. Avoid starting with the most important or chaotic process in the organization.",
+      "Measure more than time saved. Track correction rate, missed exceptions, review effort, and whether the automation creates new coordination work elsewhere."
+    ],
+    "exercise": "Estimate the current time, frequency, error rate, and review effort for one candidate task.",
+    "discussion": "Could making one step faster make the overall process worse?",
+    "sources": [{"label":"NIST AI RMF Playbook","url":"https://airc.nist.gov/airmf-resources/playbook/"}]
+  },
+  {
+    "id": "knowledge-base",
+    "day": 18,
+    "week": 4,
+    "date": "2026-10-23",
+    "title": "Building a useful knowledge base",
+    "outcome": "Design a small, owned collection of sources that an AI workflow can retrieve safely.",
+    "reading": [
+      "A useful knowledge base is curated rather than merely large. Give each source an owner, date, scope, and status. Remove duplicates, preserve provenance, and distinguish approved policy from drafts or discussion.",
+      "Access control belongs in retrieval, not only in the interface. A user or agent should retrieve only the sources permitted for that task, even if a broader index exists behind the scenes."
+    ],
+    "exercise": "Choose ten documents for a small knowledge base and write the owner and freshness rule for each.",
+    "discussion": "How should the system respond when two approved sources disagree?",
+    "sources": [{"label":"Anthropic: Contextual Retrieval","url":"https://www.anthropic.com/engineering/contextual-retrieval"}]
+  },
+  {
+    "id": "monitoring-scheduled-work-bots",
+    "day": 19,
+    "week": 4,
+    "date": "2026-10-26",
+    "title": "Monitoring, scheduled work, and reliable bots",
+    "outcome": "Design unattended work that is observable, bounded, and quiet when healthy.",
+    "reading": [
+      "Scheduled automation needs an explicit trigger, allowed operating window, timeout, retry policy, and owner. It should record what ran and alert a person when intervention is needed instead of silently failing.",
+      "Healthy automation should usually stay quiet. Alerts should be actionable and include the failed step, affected target, evidence, and safe next action. Repeated blind retries can multiply damage rather than improve reliability."
+    ],
+    "exercise": "Write a monitoring rule with a success condition, failure alert, retry limit, and escalation owner.",
+    "discussion": "What evidence would convince you that an unattended task completed correctly?",
+    "sources": [{"label":"OWASP Top 10 for LLM and GenAI","url":"https://genai.owasp.org/initiative/owasp-top-10-for-llm-and-genai/"}]
+  },
+  {
+    "id": "publish-demonstrate-reflect",
+    "day": 20,
+    "week": 4,
+    "date": "2026-10-27",
+    "title": "Publish, demonstrate, and reflect",
+    "outcome": "Prepare a small project with evidence, limitations, and a clear next experiment.",
+    "reading": [
+      "A useful demonstration shows the problem, the old process, the new workflow, its safety boundaries, and a real result. Do not hide manual steps or present a prototype as production-ready.",
+      "Close the loop by recording what failed, what required correction, and what you would test next. Open collaboration improves when others can reproduce the project, understand its licence, and see where help is wanted."
+    ],
+    "exercise": "Prepare a three-minute demonstration: problem, workflow, evidence, limitation, and next step.",
+    "discussion": "What did you learn that changed your original idea of what AI should do?",
+    "sources": [{"label":"Trails Tech repository","url":"https://github.com/jpgaviria2/trails-tech"}]
+  }
+]
