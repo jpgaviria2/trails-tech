@@ -8,15 +8,15 @@ async function read(relativePath) {
   return readFile(new URL(relativePath, root), 'utf8');
 }
 
-test('curriculum contains 20 complete, uniquely dated lessons ending before the meetup', async () => {
+test('curriculum contains 20 complete lessons organized into four modules', async () => {
   const lessons = JSON.parse(await read('lessons.json'));
   assert.equal(lessons.length, 20);
   assert.equal(new Set(lessons.map(({ id }) => id)).size, 20);
-  assert.equal(new Set(lessons.map(({ date }) => date)).size, 20);
-  assert.equal(lessons.at(-1).date, '2026-10-27');
+  assert.deepEqual(lessons.map(({ day }) => day), Array.from({ length: 20 }, (_, index) => index + 1));
+  assert.deepEqual([...new Set(lessons.map(({ week }) => week))], [1, 2, 3, 4]);
 
   for (const lesson of lessons) {
-    for (const field of ['id', 'day', 'week', 'date', 'title', 'outcome', 'reading', 'exercise', 'discussion', 'sources']) {
+    for (const field of ['id', 'day', 'week', 'title', 'outcome', 'reading', 'exercise', 'discussion', 'sources']) {
       assert.ok(lesson[field], `lesson ${lesson.id ?? 'unknown'} is missing ${field}`);
     }
     assert.ok(Array.isArray(lesson.reading) && lesson.reading.length >= 2);
@@ -44,6 +44,21 @@ test('standalone page exposes learning and collaboration controls', async () => 
   }
   assert.match(html, /Content-Security-Policy/);
   assert.match(html, /default-src 'self'/);
+});
+
+test('learning path copy and lesson labels remain reusable after the original meetup', async () => {
+  const [html, app, readme] = await Promise.all([
+    read('index.html'),
+    read('app.js'),
+    read('README.md'),
+  ]);
+
+  assert.doesNotMatch(`${html}\n${app}\n${readme}`, /October 28|ready for the meetup|followed by the Trails Tech meetup|4 weeks/i);
+  assert.match(html, /<strong>4 modules<\/strong><span>20 lessons<\/span>/i);
+  assert.doesNotMatch(app, /new Date\(`\$\{lesson\.date\}/);
+  assert.match(app, /Module \$\{lesson\.week\} · Lesson \$\{lesson\.day\}/);
+  assert.match(app, /Learning path complete\./);
+  assert.match(html, /finish with a small, reviewable project you can keep improving and share with others/i);
 });
 
 test('client rendering avoids HTML injection and validates stored state and external URLs', async () => {

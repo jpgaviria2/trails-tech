@@ -81,9 +81,8 @@ function renderList() {
     card.append(createElement('span', { className: 'lesson-card__number', text: String(lesson.day).padStart(2, '0') }));
 
     const copy = createElement('span');
-    const date = new Date(`${lesson.date}T12:00:00`).toLocaleDateString('en-CA', { month: 'short', day: 'numeric' });
     copy.append(
-      createElement('small', { text: `Week ${lesson.week} · ${date}` }),
+      createElement('small', { text: `Module ${lesson.week} · Lesson ${lesson.day}` }),
       createElement('strong', { text: lesson.title }),
     );
     card.append(copy);
@@ -122,7 +121,7 @@ function renderLesson() {
   const lesson = lessons[lessonNumberFromHash() - 1];
   document.querySelectorAll('.lesson-card').forEach((card) => card.toggleAttribute('aria-current', Number(card.dataset.day) === lesson.day));
 
-  const kicker = createElement('p', { className: 'eyebrow', text: `Day ${lesson.day} · Week ${lesson.week}` });
+  const kicker = createElement('p', { className: 'eyebrow', text: `Lesson ${lesson.day} · Module ${lesson.week}` });
   const title = createElement('h2', { text: lesson.title });
   const outcome = createElement('p', { className: 'outcome' });
   outcome.append(createElement('strong', { text: 'What you’ll learn: ' }), document.createTextNode(lesson.outcome));
@@ -175,7 +174,7 @@ function renderLesson() {
       attributes: { href: `#lesson-${lesson.day + 1}` },
     }));
   } else {
-    completion.append(createElement('strong', { text: 'Ready for the meetup.' }));
+    completion.append(createElement('strong', { text: 'Learning path complete.' }));
   }
 
   lessonView.replaceChildren(

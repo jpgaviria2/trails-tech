@@ -2,7 +2,7 @@
 
 An open-source learning platform for practical AI, agents, safety, automation, and open technology.
 
-The first learning path contains 20 short lessons running from October 1–27, 2026, followed by the Trails Tech meetup on October 28. Progress is stored only in the learner's browser. The site has no account system, analytics, advertising, or dependency on trailscoffee.com's private source repository.
+The first learning path contains 20 short lessons organized into four reusable modules. Learners can work through them at their own pace and finish with a small, reviewable project. Progress is stored only in the learner's browser. The site has no account system, analytics, advertising, or dependency on trailscoffee.com's private source repository.
 
 ## Use the course
 
